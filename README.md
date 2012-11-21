@@ -165,6 +165,9 @@ repo is added.
 - bootstrapurl: Optional, bootstrapurl
 - make_cache: Optional, Default is `true`, if `false` then `yum -q
   makecache` will not be ran
+- proxy: Optional, per-repository proxy URL
+- proxy_username: Optional, proxy username for this repository
+- proxy_password: Optional, proxy password for this repository
 
 *Note*: When using both url (to set baseurl) and mirrorlist, it is probably a
 good idea to also install the fastestmirror plugin, and use
