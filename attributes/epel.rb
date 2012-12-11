@@ -31,5 +31,6 @@ else
     default['yum']['epel']['key'] = "RPM-GPG-KEY-EPEL"
   end
 end
+default['yum']['epel']['mirrorlist'] = true
 
 default['yum']['epel']['key_url'] = "http://download.fedoraproject.org/pub/epel/#{node['yum']['epel']['key']}"
