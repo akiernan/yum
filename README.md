@@ -46,6 +46,17 @@ EPEL attributes used in the `yum::epel` recipe, see
 * `yum['epel']['key_url']`
     - URL to the GPG key for the repo.
 
+* `yum['epel']['proxy']`
+    - Set the URL for an HTTP proxy used for the EPEL repo.
+    - None of the proxy settings are used if this is an empty string
+      (default)
+
+* `yum['epel']['proxy_username']`
+    - Set the username for the proxy
+
+* `yum['epel']['proxy_password']`
+    - Set the password for the proxy
+
 The `node['yum']['epel_release']` attribute is removed, see the __epel__
 recipe information below.
 

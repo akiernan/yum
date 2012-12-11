@@ -34,3 +34,6 @@ end
 default['yum']['epel']['mirrorlist'] = true
 
 default['yum']['epel']['key_url'] = "http://download.fedoraproject.org/pub/epel/#{node['yum']['epel']['key']}"
+default['yum']['epel']['proxy'] = nil
+default['yum']['epel']['proxy_username'] = nil
+default['yum']['epel']['proxy_password'] = nil

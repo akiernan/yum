@@ -32,5 +32,8 @@ yum_repository "epel" do
   else
     url node['yum']['epel']['url']
   end
+  proxy node['yum']['epel']['proxy']
+  proxy_username node['yum']['epel']['proxy_username']
+  proxy_password node['yum']['epel']['proxy_password']
   action platform?('amazon') ? [:add, :update] : :add
 end
