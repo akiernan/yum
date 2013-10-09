@@ -24,12 +24,10 @@ yum_key node['yum']['epel']['key'] do
   action :add
 end
 
-yum_repository "epel" do
+resource = yum_repository "epel" do
   description "Extra Packages for Enterprise Linux"
-  key node['yum']['epel']['key']
   url node['yum']['epel']['baseurl']
   mirrorlist node['yum']['epel']['url']
-  includepkgs node['yum']['epel']['includepkgs']
-  exclude node['yum']['epel']['exclude']
   action platform?('amazon') ? [:add, :update] : :add
 end
+populate_repository_attributes(resource, node['yum']['epel'])

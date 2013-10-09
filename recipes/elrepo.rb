@@ -21,11 +21,9 @@ yum_key node['yum']['elrepo']['key'] do
   action :add
 end
 
-yum_repository "elrepo" do
+resource = yum_repository "elrepo" do
   description "ELRepo.org Community Enterprise Linux Extras Repository"
-  key node['yum']['elrepo']['key']
   mirrorlist node['yum']['elrepo']['url']
-  includepkgs node['yum']['elrepo']['includepkgs']
-  exclude node['yum']['elrepo']['exclude']
   action :create
 end
+populate_repository_attributes(resource, node['yum']['elrepo'])

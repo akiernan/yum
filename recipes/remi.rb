@@ -24,12 +24,9 @@ yum_key node['yum']['remi']['key'] do
   action :add
 end
 
-yum_repository "remi" do
+resource = yum_repository "remi" do
   description "Les RPM de remi pour Enterprise Linux #{node['platform_version']} - $basearch"
-  key node['yum']['remi']['key']
   mirrorlist node['yum']['remi']['url']
-  failovermethod "priority"
-  includepkgs node['yum']['remi']['includepkgs']
-  exclude node['yum']['remi']['exclude']
   action :create
 end
+populate_repository_attributes(resource, node['yum']['remi'])
