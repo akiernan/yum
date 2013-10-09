@@ -19,4 +19,7 @@ suites:
   run_list:
   - recipe[minitest-handler]
   - recipe[yum::test]
-  attributes: {}
+  attributes:
+    yum:
+      epel:
+        exclude: "foo"

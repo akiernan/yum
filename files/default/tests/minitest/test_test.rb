@@ -33,6 +33,10 @@ describe "yum::test" do
     it "enables the epel repository" do
       assert(repo_enabled("epel"))
     end
+
+    it "excludes packages which are marked for exclusion" do
+      file('/etc/yum.repos.d/epel.repo').must_match %r[^exclude=foo$]
+    end
   end
 
   describe "ius" do
@@ -44,6 +48,10 @@ describe "yum::test" do
   describe "remi" do
     it "enables the remi repository" do
       assert(repo_enabled("remi"))
+    end
+
+    it "sets the failovermethod to 'priority'" do
+      file('/etc/yum.repos.d/remi.repo').must_match %r[^failovermethod=priority$]
     end
   end
 
