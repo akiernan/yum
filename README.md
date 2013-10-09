@@ -83,6 +83,7 @@ Proxy settings used in yum.conf on RHEL family 5 and 6:
     - Set the password for the proxy
     - not used if `yum['proxy']` above is an empty string
 
+In addition the EPEL, ELRepo and Remi recipes will pass through any attribute accepted by `yum_repository` (e.g. `failovermethod`, `make_cache` etc.)
 
 Recipes
 -------
